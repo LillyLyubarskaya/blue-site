@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Blue-site</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<p class="lobster">Author</p>
+			<ul>
+				<li onmouseover="changeBG(this)" onmouseout="backBG(this)" >
+					<center><a>Home</a></center>
+				</li>
+				<li onmouseover="changeBG(this)" onmouseout="backBG(this)">
+					<center><a>Service</a></center>
+				</li>
+				<li onmouseover="changeBG(this)" onmouseout="backBG(this)">
+					<center><a>Portfolio</a></center>
+				</li>
+				<li onmouseover="changeBG(this)" onmouseout="backBG(this)">
+					<center><a>Team</a></center>
+				</li>
+				<li onmouseover="changeBG(this)" onmouseout="backBG(this)"> 
+					<center><a>Blog</a></center>
+				</li>
+				<li onmouseover="changeBG(this)" onmouseout="backBG(this)">
+					<center><a>Contact</a></center>
+				</li>
+				<script>
+					function changeBG(x){
+						x.style.backgroundColor="#CCFFFF";
+						x.style.borderBottom="2px solid #33CCCC";
+						x.style.color="#33CCCC";
+					}
+					function backBG(x){
+						x.style.backgroundColor="white";
+						x.style.borderBottom="none";
+						x.style.color="black";
+					}
+				</script>
+			</ul>
+		</header>
+		<div class="slider">
+			<ul>
+				<li>
+					<div class="first-banner">
+						<span class="burning">I'm on fire!</span>
+					</div>
+					<script type="text/javascript" src="js/jquery.js"></script>
+					
+					<script src="js/jquery.burn.min.js"></script>
+					<script src="js/scripts.js"></script>
+				</li>
+				<li><div class="second-banner"></div></li>
+				<li><div class="third-banner"></div></li>
+				<li><div class="fourth-banner"></div></li>
+				<li><div class="fifth-banner"></div></li>
+			</ul>
+		</div>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".slider").each(function ()
+		{
+			var obj = $(this);
+			$(obj).append("<div class='nav'></div>");
+
+			$(obj).find("li").each(function ()
+			{
+				$(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
+				$(this).addClass("slider"+$(this).index());
+			});
+
+			$(obj).find("span").first().addClass("on");
+		});
+	});
+
+	function sliderJS (obj, sl) // slider function
+	{
+		var ul = $(sl).find("ul");
+		var bl = $(sl).find("li.slider"+obj);
+		var step = $(bl).width();
+		$(ul).animate({marginLeft: "-"+step*obj}, 500);
+	}
+
+	$(document).on("click", ".slider .nav span", function() // slider click navigate
+	{
+		var sl = $(this).closest(".slider");
+		$(sl).find("span").removeClass("on");
+		$(this).addClass("on");
+		var obj = $(this).attr("rel");
+		sliderJS(obj, sl);
+		return false;
+	});
+</script>
+		<div class="info">
+			<center><div class="info-column">
+				<center><img src="images/custom-designs.png"></center>
+				<center><h3>Custom Designs</h3></center>
+				<center><p>Lorem ipsum is simply dummy text of the<br>
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br>
+				</p></center>
+				<center><button class="read-more">Read more</button></center>
+			</div>
+			<div class="info-column">
+				<center><img src="images/web-design.png"></center>
+				<center><h3>Web design</h3></center>
+				<center><p>Lorem ipsum is simply dummy text of the<br>
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br>
+				</p></center>
+				<center><button class="read-more">Read more</button></center>
+			</div>
+			<div class="info-column">
+				<center><img src="images/blog-pages.png"></center>
+				<center><h3>Blog pages</h3></center>
+				<center><p>Lorem ipsum is simply dummy text of the<br>
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br>
+				</p></center>
+				<center><button class="read-more">Read more</button></center>
+			</div>
+			<div class="info-column">
+				<center><img src="images/mobile-friendly.png">
+				<center><h3>Mobile friendly</h3></center>
+				<center><p>Lorem ipsum is simply dummy text of the<br>
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br>
+				</p></center>
+				<center><button class="read-more">Read more</button></center>
+			</div></center>
+		</div>
+		<div class="portfolio">
+			<center><h3>Portfolio</h3></center>
+			<div class="photos">
+				<div class="photo-column">
+					<img src="images/pic1.png" class="photo-margin">
+					<img src="images/pic4.png">
+				</div>
+				<div class="photo-column">
+					<img src="images/pic2.png" class="photo-margin">
+					<img src="images/pic5.png">
+				</div>
+				<div class="photo-column">
+					<img src="images/pic3.png" class="photo-margin">
+					<img src="images/pic6.png">
+				</div>
+			</div>
+			<center><button class="see">See all works</button></center>
+		</div>
+		<div class="team">
+			<center><h3>The Team</h3></center>
+			<center><div class="team-column">
+				<center><div class="round"></div></center>
+				<div class="team-headers"><center><h4>Adrian Thomas</h4></center>
+				<center><h5>CEO & Founder</h5></center></div>
+				<center><p>Lorem ipsum is simply dummy text of the<br>
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br>
+				</p></center>
+			</div>
+			<div class="team-column">
+				<center><div class="round"></div></center>
+				<div class="team-headers"><center><h4>Adrian Thomas</h4></center>
+				<center><h5>CEO & Founder</h5></center></div>
+				<center><p>Lorem ipsum is simply dummy text of the<br>
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br>
+				</p></center>
+			</div>
+			<div class="team-column">
+				<center><div class="round"></div></center>
+				<div class="team-headers"><center><h4>Adrian Thomas</h4></center>
+				<center><h5>CEO & Founder</h5></center></div>
+				<center><p>Lorem ipsum is simply dummy text of the<br>
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br>
+				</p></center>
+			</div>
+			<div class="team-column">
+				<center><div class="round"></div></center>
+				<div class="team-headers"><center><h4>Adrian Thomas</h4></center>
+				<center><h5>CEO & Founder</h5></center></div>
+				<center><p>Lorem ipsum is simply dummy text of the<br>
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br>
+				</p></center>
+			</div></center>
+		</div>
+		<div class="salary">
+			<div class="salary-column">
+				<div class="salary-caption-black">
+					<center><h3>Basic</h3></center>
+				</div>
+				<div class="salary-column-content">
+					<div class="salary-money">
+						<center>$5.01/ Month</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Lorem ipsum</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Dolor sit amet consect</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Adipiscing elit</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Proin commodo turpis</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Lacus pulvinarvel</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Prnare nisi pretium</center>
+					</div>
+					<div class="button">
+						<center><button class="grey-button">Buy now</button></center>
+					</div>
+				</div>
+			</div>
+			<div class="salary-column">
+				<div class="salary-caption-blue">
+					<center><h3>Pro</h3></center>
+				</div>
+				<div class="salary-column-content">
+					<div class="salary-money">
+						<center>$5.01/ Month</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Lorem ipsum</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Dolor sit amet consect</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Adipiscing elit</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Proin commodo turpis</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Lacus pulvinarvel</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Prnare nisi pretium</center>
+					</div>
+					<div class="button">
+						<center><button class="blue-button">Buy now</button></center>
+					</div>
+				</div>
+			</div>
+			<div class="salary-column">
+				<div class="salary-caption-black">
+					<center><h3>Premium</h3></center>
+				</div>
+				<div class="salary-column-content">
+					<div class="salary-money">
+						<center>$5.01/ Month</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Lorem ipsum</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Dolor sit amet consect</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Adipiscing elit</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Proin commodo turpis</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Lacus pulvinarvel</center>
+					</div>
+					<div class="lorem-ipsum">
+						<center>Prnare nisi pretium</center>
+					</div>
+					<div class="button">
+						<center><button class="grey-button">Buy now</button></center>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clients">
+			<button class="clients-back"></button>
+			<div class="clients-text">
+				<center><h1>What clients say?</h1>
+				<p>
+					The effect can be somewhat CPU intensive<br> 
+					(especially for older computers), <br>
+					so use it sparingly.<br>
+					It can be stopped and restarted dynamically,<br>
+				</p>
+				<span>John Dove</span></center>
+			</div>
+			<button class="clients-forward"></button>
+		</div>
+		<footer>
+			<h3>Contact us</h3>
+			<div class="get-in-touch">
+				<span>Get in touch with us</span>
+				<p>Lorem ipsum is simply dummy text of the
+					printing and timesetting industry.<br>
+					Lorem ipsum has been<br></p>
+				<div class="socials">
+					<a><img src="images/fb.png"></a>
+					<a><img src="images/twitter.png"></a>
+					<a><img src="images/g+.png"></a>
+				</div>
+				<p class="violet">
+					Posted by Gospel & GanjaParker<br>
+					+XX-XXX-XX-XX<br>
+					info@mail.com<br>
+				</p>
+			</div>
+			<div class="contact-us">
+				<div class="top-line">
+					<input type="text" name="Name" value="Name">
+					<input type="text" name="Email" value="Email">
+				</div>
+				<textarea value="Message" placeholder="Message"></textarea>
+				<button class="send">Send</button>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
